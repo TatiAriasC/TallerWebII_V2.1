@@ -1,0 +1,50 @@
+
+<%- include('../layouts/header',{title: 'Car list'}); -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-success text-center"> Crear un nuevo carro</h1>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-12">
+                <form action="/carros" method="post" class="row">
+                    <div class="col-6">
+                        <label for="marca" class="form-label">Marca</label>
+                        <input type="text" name="marca" id="marca" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="linea" class="form-label">Linea</label>
+                        <input type="text" name="linea" id="linea" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="modelo" class="form-label">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="color" class="form-label">Color</label>
+                        <input type="text" name="color" id="color" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="compra" class="form-label">Fecha de compra</label>
+                        <input type="date" name="compra" id="compra" class="form-control" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 d-grid mt-4">
+                            <button type="submit" class="btn btn-outline-secondary">Crear</button>
+                        </div>
+                    </div>
+        </div>
+            <div class="row">
+                <div class="col-12 d-grid mt-4">
+                    <a href="/carros" class="btn btn-outline-secondary">
+                        Volver a la lista de los carros
+                        </a>
+         </div>
+    </div>
+
+    <%- include('../layouts/footer'); -%>
+   
+    
+    

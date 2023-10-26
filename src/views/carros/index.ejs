@@ -1,0 +1,60 @@
+<%- include('../layouts/header',{title: 'Car list'}); -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-success text-center">LISTA DE CARROS</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">MARCA</th>
+                            <th scope="col">LINEA</th>
+                            <th scope="col">MODELO</th>
+                            <th scope="col">COLOR</th>
+                            <th scope="col">COMPRA</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% carros.map( carro => { %>
+                            <tr>
+                                <th scope="row"><%= carro.id %></th>
+                                <td><%= carro.marca%></td>
+                                <td><%= carro.linea %></td>
+                                <td><%= carro.modelo %></td>
+                                <td><%= carro.color %></td>
+                                <td><%= carro.compra %></td>
+                                <td align="center"><a href="/pdf/${carro.id}" target="_blank" class="btn btn-info">Descargar PDF</a></td>
+                                <td align="center">
+                                  <form action="/carros/Delete/<%=carro.id%>" method="post"
+                                    onsubmit= "return confirm('Está seguro de borrar el registro?');"
+                                    >
+                                  <button type="submit" class="btn btn-danger">BORRAR</button>
+                                </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-grid">
+                <a href="/carros/create" class="btn btn-outline-secondary">
+                    Crear un nuevo carro
+                </a>
+            </div>
+        </div>
+        <br>
+        <form class="d-flex" role="search" action="/carros" method="GET">
+            <input class="form-control me-2" type="search" placeholder="¿Qué marca de carro estas buscando?" aria-label="Search" id="filtro" name="filtro">
+            <button class="btn btn-outline-success" type="submit" id="btnBuscar">Buscar</button>
+          </form>
+    </div>
+
+    <%- include('../layouts/footer'); -%>
+   
